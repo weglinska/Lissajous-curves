@@ -1,0 +1,9 @@
+applications:
+- disk_quota: 128M
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  host: Weglinskalab02zadanie
+  name: Weglinskalab02zadanie
+  path: .
+  domain: eu-gb.mybluemix.net
+  instances: 1
+  memory: 128M

@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="index.css">
+		<title>Krzywe Lissajous</title>
+		<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+	</head>
+
+	<body>
+		<div id="container">
+			<header>Krzywe Lissajous</header>
+			<section id="left_section">
+				<script type="text/javascript" src="skrypt.js"></script>
+				<button onclick="glowna()" class="menuButtons" style="width:160px">Strona główna</button>
+				<button onclick="definicja()" class="menuButtons" style="width:160px">Definicja</button>		
+				<button onclick="rodzaje()" class="menuButtons" style="width:160px">Rodzaje</button>
+				<button onclick="przyklady()" class="menuButtons" style="width:160px">Przykłady</button>
+				<button onclick="stworzkrzywa()" class="menuButtons" style="width:160px">Stwórz krzywą</button>
+				<button onclick="dokumentacja()" class="menuButtons" style="width:160px">Dokumentacja</button>
+			</section>
+			<div id="center">
+				<div id="glowna">
+				Strona ta jest poświęcona zagadnieniu fizycznemu jakim są krzywe Lissajous.
+				Została ona wykonana w ramach projektu z przemdiotu <i>Techniki Internetowe.</i>
+				<br><br><br><br><br><br><br><br><br><br><br><br>Wszelkie informacje teoretyczne pochodzą z serwisu 
+				<a href="https://pl.wikipedia.org/">Wikipedia</a>.
+				</div>
+
+
+				<div id="definicja">
+				<b>Krzywa Lissajous</b> (wym. <i>lisaʒu</i>) to krzywa parametryczna wykreślona przez punkt materialny 		wykonujący drgania harmoniczne w dwóch wzajemnie prostopadłych kierunkach.
+				<br>Dana jest wzorem:<br>
+			
+					\begin{cases}
+					x(t)=A sin(at+δ)\\
+					y(t)=B sin(bt)  
+					\end{cases}
+
+				<br>Nazwy pochodzą od nazwisk Nathaniela Bowditcha, który opisał rodzinę tych krzywych w 1799, oraz Jules’a Antoine’a Lissajous, który badał je używając do tego drgających kamertonów z umocowanymi do nich zwierciadełkami. Krzywe te nazywane są też figurami Lissajous.
+				</div>
+
+				<div id="rodzaje">
+				Kształt krzywych jest szczególnie uzależniony od współczynnika
+					$$\frac{a}{b}.$$
+				Dla współczynnika równego 1, krzywa jest elipsą, ze specjalnymi przypadkami okrąg:
+					$$A=B,   δ=\frac{π}{2}$$
+				oraz odcinek:
+					$$δ = 0$$
+				Inne wartości współczynnika dają bardziej złożone krzywe, które są zamknięte, tylko gdy <i>a/b</i> jest liczbą wymierną.
+				</div>
+
+				<div id="przyklady">
+				Poniżej zamieszczono przykłady krzywych Lissajous o parametrach:
+					$$δ=\frac{π}{2}, |a-b|=1$$
+				gdzie <i>a</i> - nieparzyste oraz <i>b</i> - parzyste.
+				<br>Wybierz jeden z zestawów parametrów:<br>
+					<select id="ltype" onchange="showPic();">
+					  <option value="selectcard">---Wybierz---</option>
+					  <option value="a1b2">a=1, b=2</option>
+					  <option value="a3b2">a=3, b=2</option>
+					  <option value="a3b4">a=3, b=4</option>
+					  <option value="a5b4">a=5, b=4</option>
+					  <option value="a5b6">a=5, b=6</option>
+					  <option value="a9b8">a=9, b=8</option>
+					</select>
+
+					<script type="text/javascript" src="skrypt.js"></script>
+
+				<br><img id="lissajous" align="right" style="width:400px;height:400px;">
+				</div>
+
+				<div id="stworzkrzywa">
+				<body>
+					<canvas id="canvasShape" height="600" width="600""></canvas><br>
+				</body>
+				</div>
+
+				<div id="dokumentacja">
+				<b>Zawartość projektu</b>
+				<ul>
+					<li>główny plik - index.html</li>
+					<li>plik arkuszy styli - index.css</li>
+					<li>plik skryptu - skrypt.js</li>
+					<li>obrazek stanowiący tło - galaxy.jpg</li>
+				</ul> 
+				<b>Tworzenie krzywej</b><br>
+				W celu narysowania krzywej należy podać parametry <i>a</i>, <i>b</i> i <i>δ</i> (wartośc podajemy w stopniach). Możliwy jest róœnież wybórw koloru linii. Po naciśnięciu przycisku <i>Rysuj!</i> zostaje uruchomiona animacja przedstawiająca rysowanie krzywej Lissajous o zadanych parametrach.
+				<br><b>Uwagi</b><br>
+				W projekcie wykorzystano bibliotekę <i>jscolor</j>.
+				</div>
+
+
+			</div>
+			<section id="right_section">
+				<div id="controls">
+				<b>Podaj parametry</b><br>
+					<form>
+						<label><i>a</i>:</label>
+						<input type="number" id="paramA" value="1"><br>
+						<label><i>b</i>:</label>
+						<input type="number" id="paramB" value="1"><br>
+						<label><i>δ</i>:</label>
+						<input type="number" id="delta" value="0">°<br>
+						<script src="jscolor.js"></script>
+						<label><i>k</i>:</label>
+						<input class="jscolor" id="picker" value="ab2567">
+
+
+					<input type="submit" value="Rysuj!" class="menuButtons" style="width:110px" onclick="clearCanvas(); val=300; startAnimation(); return false;"><br>
+				</form> 
+				</div>
+			</section>
+
+			<footer>
+				Copyright © 2016 W. Węglińska
+			</footer>
+
+		</div>
+
+	</body>
+
+</html>
